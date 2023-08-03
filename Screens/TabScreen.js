@@ -148,6 +148,8 @@ const TabScreen = () => {
     console.log("SimulateAmount")
   };
 
+  //GIT TEST
+
 
   const renderTabBar = props => (
     <TabBar

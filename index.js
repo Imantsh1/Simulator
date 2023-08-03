@@ -10,3 +10,4 @@ import SimulationScreen from "./Screens/SimulationScreen"
 //import TestScreen from "../simulator/Screens/TestScreen";
 
 AppRegistry.registerComponent(appName, () =>SimulationScreen);
+//..GIT TEST
