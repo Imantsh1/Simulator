@@ -14,6 +14,61 @@ const TabScreen = () => {
     {key: 'first', title: 'Housing loan'},
     {key: 'second', title: 'Consumer credit'},
   ]);
+  
+ ////////////////////////////////////// 
+  const [amountHL, setAmountHL] = useState(200000)
+  const [rateHL, setRateHL]= useState(200000)
+  const [durationHL,setDurationHL ]=useState(200000)
+  const [deferredHL,setDeferredHL ]=useState(200000)
+  const [MounthlyHL,setMounthlyHL ]=useState(200000)
+
+  const onChangeAmountHL = (amountHL) => {
+    setAmountHL(amountHL)
+    console.log(amountHL)
+    // SimulateMonthly()
+  }
+  const onChangeRateHL=(rateHL)=>{
+    setRateHL(rateHL)
+    // SimulateMonthly()
+  }
+  const onChangeDurationHL =(durationHL )=>{
+    setDurationHL(durationHL)
+  }
+  const onChangeDeferredHL =(deferredHL )=>{
+    setDeferredHL(deferredHL)
+  }
+  const onChangeMounthlyHL = (MounthlyHL) =>{
+    setMounthlyHL(MounthlyHL)
+  }
+
+  
+//////////////////////////////////////
+
+  const [amountCC, setAmountCC] = useState(200000)
+  const [rateCC, setRateCC]= useState(200000)
+  const [durationCC,setDurationCC ]=useState(200000)
+  const [deferredCC,setDeferredCC ]=useState(200000)
+  const [MounthlyCC,setMounthlyCC ]=useState(200000)
+  
+  const onChangAmountCC=(amountCC)=> {
+    setAmountCC(amountCC);
+  }
+  const onChangeRateCC =(rateCC)=>{
+    setRateCC(rateCC );  //SimulateMonthly()
+  }
+  const onChangeDurationCC =(durationCC )=>{
+    setDurationCC(durationCC)
+  }
+  const onChangeDeferredCC =(deferredCC )=>{
+    setDeferredCC(deferredCC)
+  }
+  const onChangeMounthlyCC =(MounthlyCC )=>{
+    setMounthlyCC(MounthlyCC)
+  }
+
+
+
+
 
 
   const renderScene = SceneMap({
@@ -29,8 +84,8 @@ const TabScreen = () => {
           max={Constants.MaxAmountHL}
           label="Amount: "
           unit={Constants.Currency}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
+          Simulate={(amountHL) => onChangeAmountHL(amountHL)}
+          value={amountHL}
           reference = {"amountHL"}
           ></RangeSlider>
         <RangeSlider
@@ -38,24 +93,24 @@ const TabScreen = () => {
           max={Constants.MaxRateHL}
           label="Rate: "
           unit={Constants.Percentage}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
+          Simulate={(rateHL) => onChangeRateHL(rateHL)}
+          value={rateHL}
           reference = {"rateHL"}></RangeSlider>
         <RangeSlider
           min={Constants.MinDurationHL}
           max={Constants.MaxDurationHL}
           label="Duration: "
           unit={Constants.Month}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
+          Simulate={(durationHL) => onChangeDurationHL(durationHL)}
+          value={durationHL}
           refrence='durationHL'></RangeSlider>
         <RangeSlider
           min={Constants.MinDeferredHL}
           max={Constants.MaxDefferedHL}
           label="Deferred: "
           unit={Constants.Month}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
+          Simulate={(deferredHL) => onChangeDeferredHL(deferredHL)}
+          value={deferredHL}
           refrence='deferredHL'
           ></RangeSlider>
         <RangeSlider
@@ -63,8 +118,8 @@ const TabScreen = () => {
           max={Constants.MaxMonthlyHL}
           label="Monthly payment: "
           unit={Constants.Currency}
-          Simulate={() => SimulateAmount()}
-          value={200000}
+          Simulate={(MounthlyHL) => onChangeMounthlyHL(MounthlyHL)}
+          value={MounthlyHL}
           reference = {"monthlyHL"}></RangeSlider>
         <Touchable></Touchable>
         
@@ -76,49 +131,49 @@ const TabScreen = () => {
     return (
       <ScrollView style={styles.scene}>
         <RangeSlider
-          min={Constants.MinAmountCC}
-          max={Constants.MaxAmountCC}
-          label="Amount :"
+          min={Constants.MinAmountHL}
+          max={Constants.MaxAmountHL}
+          label="Amount: "
           unit={Constants.Currency}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
-          reference={'amountCC'}></RangeSlider>
+          Simulate={(amountCC) => onChangAmountCC(amountCC)}
+          value={amountCC}
+          reference = {"amountCC"}
+          ></RangeSlider>
         <RangeSlider
-          min={Constants.MinRateCC}
-          max={Constants.MaxRateCC}
+          min={Constants.MinRateHL}
+          max={Constants.MaxRateHL}
           label="Rate: "
           unit={Constants.Percentage}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
-          reference={'rateCC'}></RangeSlider>
+          Simulate={(rateCC) => onChangeRateCC(rateCC)}
+          value={rateHL}
+          reference = {"rateCC"}></RangeSlider>
         <RangeSlider
-          min={Constants.MinDurationCC}
-          max={Constants.MaxDurationCC}
+          min={Constants.MinDurationHL}
+          max={Constants.MaxDurationHL}
           label="Duration: "
           unit={Constants.Month}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
-          reference={'durationCC'}></RangeSlider>
+          Simulate={(durationCC) => onChangeDurationCC(durationCC)}
+          value={durationCC}
+          refrence='durationCC'></RangeSlider>
         <RangeSlider
-          min={Constants.MinDeferredCC}
-          max={Constants.MaxDefferedCC}
+          min={Constants.MinDeferredHL}
+          max={Constants.MaxDefferedHL}
           label="Deferred: "
           unit={Constants.Month}
-          Simulate={() => SimulateMonthly()}
-          value={200000}
-          reference={'deferredCC'}></RangeSlider>
+          Simulate={(deferredCC) => onChangeDeferredCC(deferredCC)}
+          value={deferredCC}
+          refrence='deferredCC'
+          ></RangeSlider>
         <RangeSlider
-          min={Constants.MinMonthlyCC}
-          max={Constants.MaxMonthlyCC}
+          min={Constants.MinMonthlyHL}
+          max={Constants.MaxMonthlyHL}
           label="Monthly payment: "
           unit={Constants.Currency}
-          Simulate={() => SimulateAmount()}
-          value={200000}
-          reference={'monthlyCC'}></RangeSlider>
-          <Touchable></Touchable>
-          
-         
-  
+          Simulate={(MounthlyCC) => onChangeMounthlyCC(MounthlyCC)}
+          value={MounthlyCC}
+          reference = {"monthlyCC"}></RangeSlider>
+        <Touchable></Touchable>
+        
       </ScrollView>
     );
   }

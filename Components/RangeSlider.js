@@ -5,8 +5,8 @@ import { TouchableOpacity } from 'react-native';
 
 
 
-export default RangSlider = ({ min, max, label, unit, reference, Simulate }) => {
-  const [sliderValue, setSliderValue] = useState(min);
+export default RangSlider = ({ min, max, label, unit, reference, Simulate, value }) => {
+  const [sliderValue, setSliderValue] = useState(value);
   const textInputRef = useRef(null);
 
 
@@ -71,7 +71,7 @@ export default RangSlider = ({ min, max, label, unit, reference, Simulate }) => 
             step={1}
             value={sliderValue}
             onValueChange={(sliderValue) => {
-              Simulate()
+              Simulate(sliderValue)
               setSliderValue(sliderValue)}}
           />
         </View>
