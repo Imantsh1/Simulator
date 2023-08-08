@@ -1,56 +1,46 @@
 
 
-import React, {useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-//import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-//import RangeSlider from '../Components/RangeSlider';
-//import Constants from '../utils/Constants';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
 
-
-// const onCheckedChanged = (checked, value) => {
-//   if (this.state.currentTab === 0) 
-//    { if (checked) { this.C4Immo = 10; }  else { this.C4Immo = 0; } } 
-//   else if (this.state.currentTab === 1)
-//    { if (checked) { this.C4Conso = 10; } else { this.C4Conso = 0; }
-// } 
-//      this.SimulateMonthly(); }
+export default Touchable = ({ isChecked, onChecked }) => {
+  // const [isChecked, setIsChecked] = useState(false);
 
 
-     const Touchable = () => {
-  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxClick = () => {
-    setIsChecked(!isChecked);
+    // setIsChecked(!isChecked);
+     onChecked()
   };
 
   return (
     <>
-    <View style={styles.container}>
-      
-      
+      <View style={styles.container}>
 
-      
-      <TouchableOpacity onPress={handleCheckboxClick}>
-        <View
-          style={[
-            styles.checkbox,
-            isChecked ? styles.checkedBox : styles.uncheckedBox,
-          ]}
-        />
-      </TouchableOpacity>
-      <Text style={styles.termsText}>
-        Include TVA (10%).
-      </Text>
-    </View>
-    <View>
-      {isChecked && (
-        <TouchableOpacity style={styles.proceedButton}>
-          <Text style={styles.buttonText}>Calculate</Text>
+
+
+
+        <TouchableOpacity onPress={handleCheckboxClick}>
+          <View
+            style={[
+              styles.checkbox,
+              isChecked ? styles.checkedBox : styles.uncheckedBox,
+            ]}
+          />
         </TouchableOpacity>
-      )}
-    </View>
+        <Text style={styles.termsText}>
+          Include TVA (10%).
+        </Text>
+      </View>
+      <View>
+        {isChecked && (
+          <TouchableOpacity style={styles.proceedButton}>
+            <Text style={styles.buttonText}>Calculate</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </>
   );
 };
@@ -60,8 +50,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     flexDirection: "row",
     justifyContent: "center",
-    
-    
   },
   termsText: {
     fontSize: 16,
@@ -121,5 +109,3 @@ const styles = StyleSheet.create({
     height: 7,
   },
 });
-
-export default Touchable;
